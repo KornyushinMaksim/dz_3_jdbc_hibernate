@@ -9,15 +9,39 @@
     <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
+  <component name="DBNavigator.Project.DataExportManager">
+    <export-instructions>
+      <create-header value="true" />
+      <friendly-headers value="false" />
+      <quote-values-containing-separator value="true" />
+      <quote-all-values value="false" />
+      <value-separator value="" />
+      <begin-quote value="&quot;" />
+      <end-quote value="&quot;" />
+      <file-name value="" />
+      <file-location value="" />
+      <scope value="GLOBAL" />
+      <destination value="FILE" />
+      <format value="EXCEL" />
+      <charset value="UTF-8" />
+      <charset value="UTF-8" />
+    </export-instructions>
+  </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
-    <autoscroll-from-editor value="true" />
+    <autoscroll-from-editor value="false" />
     <show-object-properties value="false" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="e22be381-d927-4f40-aff1-0b7b0accbae7">
-      <console name="Connection" type="STANDARD" schema="" session="Main" />
+      <console name="Connection" type="STANDARD" schema="" session="Main"><![CDATA[CREATE TABLE IF NOT EXISTS desserts (
+                    id BIGSERIAL PRIMARY KEY,
+                    name_dessert VARCHAR(50),
+                    weight INTEGER,
+                    cost INTEGER,
+                    description VARCHAR(255)              
+                );]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -25,15 +49,26 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="e22be381-d927-4f40-aff1-0b7b0accbae7" object-ref="consoles/Connection" />
+      <object connection-id="e22be381-d927-4f40-aff1-0b7b0accbae7" object-ref="schemas/public/tables/address" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="e22be381-d927-4f40-aff1-0b7b0accbae7" />
   </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="e22be381-d927-4f40-aff1-0b7b0accbae7" dataset="public.postgres" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="e22be381-d927-4f40-aff1-0b7b0accbae7" dataset="public.address" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="e22be381-d927-4f40-aff1-0b7b0accbae7" dataset="public.dessert" active-filter-id="EMPTY_FILTER" />
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
+  </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
+  </component>
+  <component name="DBNavigator.Project.ParserDiagnosticsManager">
+    <diagnostics-history />
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
@@ -58,7 +93,7 @@
           <deprecated-pwd value="MTIzNDU2Nzg=" />
         </database>
         <properties>
-          <auto-commit value="false" />
+          <auto-commit value="true" />
         </properties>
         <ssh-settings>
           <active value="false" />
@@ -100,9 +135,9 @@
           <tcp-port-to value="4999" />
           <debugger-type value="ASK" />
         </debugger>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
+        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="true">
           <object-filters />
-          <object-type-filter use-master-settings="true">
+          <object-type-filter use-master-settings="false">
             <object-type name="SCHEMA" enabled="true" />
             <object-type name="USER" enabled="true" />
             <object-type name="ROLE" enabled="true" />
@@ -247,7 +282,7 @@
       </general>
       <filters>
         <prompt-filter-dialog value="true" />
-        <default-filter-type value="BASIC" />
+        <default-filter-type value="NONE" />
       </filters>
       <qualified-text-editor text-length-threshold="300">
         <content-types>
@@ -525,5 +560,9 @@
         </visibility-settings>
       </environment>
     </general-settings>
+  </component>
+  <component name="DBNavigator.Project.StatementExecutionManager">
+    <execution-variables />
+    <execution-variable-types />
   </component>
 </project>
