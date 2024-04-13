@@ -28,11 +28,6 @@ public class Address{
     @Column(name = "house")
     private Integer house;
 
-    public Address setId(Long id) {
-        this.id = id;
-        return this;
-    }
-
     public Address setPostalCode(Integer postalCode) {
         this.postalCode = postalCode;
         return this;

@@ -1,9 +1,11 @@
 package tsk.hibernate.repository;
 
+import org.springframework.stereotype.Repository;
 import tsk.hibernate.model.Address;
 
 import java.util.List;
 
+@Repository
 public interface AddressRepository {
 
     void createTable();

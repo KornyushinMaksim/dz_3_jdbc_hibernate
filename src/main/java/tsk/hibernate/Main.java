@@ -3,6 +3,8 @@ package tsk.hibernate;
 import tsk.hibernate.model.Address;
 import tsk.hibernate.service.AddressService;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -44,5 +46,16 @@ public class Main {
 //        addressService.saveAddress(addr4);
 
         System.out.println(addressService.getAddressById(2L));
+
+        addressService.updateAddress(addressService.getAddressById(2L)
+                .setHouse(300)
+                .setPostalCode(896735));
+        System.out.println(addressService.getAddressById(2L));
+
+        addressService.removeAddressById(12L);
+
+        List<Address> addresses = addressService.getAllAddresses();
+        addresses.forEach(System.out::println);
+
     }
 }

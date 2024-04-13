@@ -113,27 +113,37 @@ public class AddressRepositoryImpl implements AddressRepository {
 
     @Override
     public Address getAddressById(Long id) {
+        String sql = """
+                SELECT c FROM Address c
+                WHERE c.id = :id
+                """;
 
-        List<Address> addresses = getAllAddresses();
+        SessionFactory sessionFactory = DBConfigHibernate.getSession();
+        Session session = sessionFactory.openSession();
 
-        return addresses.stream()
-                .filter(e -> e.getId().equals(id))
-                .findFirst()
-                .get();
+        Transaction tx = session.beginTransaction();
+        Address address = (Address) session.createQuery(sql)
+                .setParameter("id", id)
+                .getSingleResult();
+        tx.commit();
+
+        session.close();
+
+        return address;
     }
 
     @Override
     public List<Address> getAllAddresses() {
 
         String sql = """
-                SELECT * FROM address
+                FROM Address
                 """;
 
         SessionFactory sessionFactory = DBConfigHibernate.getSession();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Query query = session.createSQLQuery(sql);
 
+        Query query = session.createQuery(sql);
         List<Address> addresses = query.getResultList();
 
         transaction.commit();

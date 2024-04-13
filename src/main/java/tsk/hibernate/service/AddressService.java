@@ -22,7 +22,7 @@ public class AddressService {
         addressRepository.saveAddress(address);
     };
     public void removeAddressById(Long id) {
-        addressRepository.getAddressById(id);
+        addressRepository.removeAddressById(id);
     };
     public void updateAddress(Address address) {
         addressRepository.updateAddress(address);
